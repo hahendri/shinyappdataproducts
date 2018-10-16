@@ -1,0 +1,39 @@
+---
+title: "Data Products Shiny App Pitch"
+author: "Harland Hendricks"
+date: "October 15, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Assignment
+
+- Pitch my Shiny App
+- Built with R version `r getRversion()`
+- The Shiny App helps you predict the airquality in New York
+      - Uses Temperature in Fahrenheit as user input
+      - Output is air quality in ppb
+
+## Dataset "airquality" Summary
+
+```{r}
+summary(airquality)
+```
+
+## Plot of "airquality" variables
+
+```{r}
+plot(airquality)
+```
+
+## Linear Model and Plot
+
+```{r, echo = TRUE}
+model <- lm(Ozone ~ Temp, data = airquality)
+plot(x = airquality$Temp, y = airquality$Ozone, main = "Air Quality in New 
+     York for Given Temperature")
+abline(model, col = "red")
+```
